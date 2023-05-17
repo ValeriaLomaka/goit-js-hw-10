@@ -10,22 +10,13 @@ const countryInfo = document.querySelector('.country-info');
 
 searchInput.addEventListener('input',debounce(onInput,DEBOUNCE_DELAY));
 
-
 function onInput(){
     countryList.innerHTML = '';
     countryInfo.innerHTML = '';
     const inputValue = searchInput.value.trim();
 
     checkAvailableData(inputValue);
-    // checkInputInfo(inputValue);
 }
-
-
-// function checkInputInfo(country) {
-//   if (searchInput.value.length === 0) {
-//     return Notify.info('Please start entering some country for searching');
-//   }
-// }
 
 function checkAvailableData(country) {
     fetchCountries(country)
@@ -44,8 +35,6 @@ function checkAvailableData(country) {
             return Notify.failure('Oops, there is no country with that name');
         })
 }
-
-
 
 function createMarkupForCountries(countries) {
      countryList.innerHTML = '';
